@@ -117,7 +117,7 @@
       height: auto;
       border-radius: 50%; /* Make the image circular */
       box-shadow: 0 0 0 0 rgba(99,102,241, 0.7); /* Initial glow */
-      animation: logoPulse 1s infinite, fadeInElement 0.5s ease-out forwards; /* Changed duration to 1s */
+      animation: logoPulse 1s infinite, fadeInElement 0.5s ease-out forwards;
       opacity: 0;
     }
 
@@ -232,5 +232,16 @@
 
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const splashScreen = document.getElementById('splash-screen');
+      // Listen for the end of the fadeOutSplash animation
+      splashScreen.addEventListener('animationend', function() {
+        document.body.classList.add('loaded'); // Add 'loaded' class to body
+        splashScreen.style.display = 'none'; // Hide splash screen completely after fade
+      });
+    });
+  </script>
 </body>
 </html>
