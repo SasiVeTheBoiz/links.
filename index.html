@@ -1,4 +1,4 @@
-
+%%html
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -109,7 +109,7 @@
       align-items: center;
       z-index: 99999;
       opacity: 1;
-      animation: fadeOutSplash 2.5s forwards;
+      animation: fadeOutSplash 4s forwards; /* Increased duration for smoother fade out */
     }
 
     .splash-logo {
@@ -117,7 +117,7 @@
       height: auto;
       border-radius: 50%; /* Make the image circular */
       box-shadow: 0 0 0 0 rgba(99,102,241, 0.7); /* Initial glow */
-      animation: logoPulse 2.5s infinite, fadeInElement 0.5s ease-out forwards;
+      animation: logoPulse 1s infinite, fadeInElement 0.5s ease-out forwards;
       opacity: 0;
     }
 
@@ -143,12 +143,22 @@
 
     @keyframes fadeOutSplash {
       0% { opacity: 1; }
-      80% { opacity: 1; } /* Hold full opacity for a duration */
-      100% { opacity: 0; visibility: hidden; } /* Fade out and hide completely */
+      60% { opacity: 1; } /* Hold full opacity for a longer duration (60% of 4s = 2.4s) */
+      100% { opacity: 0; visibility: hidden; } /* Fade out over the remaining time */
     }
 
-    /* Ensure main content is hidden until splash screen is done */
-    body:not(.loaded) > .flex.flex-col.items-center { display: none; } /* Added for Colab compatibility */
+    /* Main content styling */
+    .main-content-fade {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.7s ease-in; /* Only opacity transitions */
+    }
+
+    .main-content-fade.visible {
+      opacity: 1;
+      visibility: visible;
+      /* transition-delay: 0s; is not needed here as visibility is not transitioned */
+    }
   </style>
 </head>
 
@@ -161,7 +171,7 @@
       class="splash-logo">
   </div>
 
-  <div class="flex flex-col items-center px-6 py-14">
+  <div id="main-page-content" class="flex flex-col items-center px-6 py-14 main-content-fade">
 
     <!-- PROFILE -->
     <div class="text-center mb-12">
@@ -236,13 +246,14 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const splashScreen = document.getElementById('splash-screen');
-      // Listen for the end of the fadeOutSplash animation
+      const mainPageContent = document.getElementById('main-page-content');
+
+      // Listen for the end of the fadeOutSplash animation on the splash screen
       splashScreen.addEventListener('animationend', function() {
-        document.body.classList.add('loaded'); // Add 'loaded' class to body
         splashScreen.style.display = 'none'; // Hide splash screen completely after fade
+        mainPageContent.classList.add('visible'); // Make main content visible and trigger its fade-in
       });
     });
   </script>
 </body>
 </html>
-
