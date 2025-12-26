@@ -109,7 +109,7 @@
       align-items: center;
       z-index: 99999;
       opacity: 1;
-      animation: fadeOutSplash 7s forwards; /* Increased duration */
+      animation: fadeOutSplash 3.5s forwards; /* Increased duration */
     }
 
     .splash-logo {
@@ -143,7 +143,7 @@
 
     @keyframes fadeOutSplash {
       0% { opacity: 1; }
-      70% { opacity: 1; } /* Hold full opacity for 70% of 3.5s = 2.45s, allowing logo to finish 2 pulses (2.5s total) */
+      100% { opacity: 1; } /* Hold full opacity for 70% of 3.5s = 2.45s, allowing logo to finish 2 pulses (2.5s total) */
       100% { opacity: 0; visibility: hidden; } /* Fade out over the remaining 30% */
     }
 
@@ -255,4 +255,5 @@
   </script>
 </body>
 </html>
+
 
