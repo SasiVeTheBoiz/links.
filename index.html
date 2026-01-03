@@ -36,14 +36,13 @@
       display: none;
     }
 
-    /* אפקט האור הכחול ללוגו למעלה */
     #profile-image {
       transition: all 0.4s ease;
     }
 
     #profile-image:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(59, 130, 246, 0.8); /* הילה כחולה */
+      box-shadow: 0 0 35px rgba(59, 130, 246, 0.8);
       border-color: rgba(59, 130, 246, 0.6);
     }
 
@@ -60,10 +59,10 @@
       transform: translateY(-6px) scale(1.01);
     }
 
-    /* הגדרות צבעים ספציפיות לכל כרטיסייה במעבר עכבר */
-    .card-vote:hover {
-      box-shadow: 0 0 25px rgba(251, 146, 60, 0.5), 0 20px 50px rgba(0,0,0,.8);
-      border-color: rgba(251, 146, 60, 0.4);
+    /* אפקט לכרטיסיית כוכב הבא */
+    .card-star:hover {
+      box-shadow: 0 0 25px rgba(250, 204, 21, 0.5), 0 20px 50px rgba(0,0,0,.8);
+      border-color: rgba(250, 204, 21, 0.4);
     }
 
     .card-kick:hover {
@@ -150,6 +149,11 @@
 
     <div class="w-full max-w-md space-y-4 mx-auto relative z-10">
 
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRcPF_XTMREqr4ZuN7zVvqfHLHuaf3Rebu5fH6SiY6lpuCpg/viewform" target="_blank" class="card card-star block rounded-2xl p-5 text-center">
+        <div class="text-xl font-black text-yellow-400">⭐ להרשמה לכוכב הבא של פיצה הפקות ⭐</div>
+                  <span class="text-yellow-300 text-[10px] font-bold px-2 py-1 rounded-lg">לחצו כאן להרשמה</span>
+      </a>
+
       <a href="https://kick.com/odedsvr" target="_blank" class="card card-kick block rounded-2xl p-5 text-center">
         <div class="text-xl font-black text-green-400">
           <img src="https://github.com/OdedSVR/images/blob/main/kick%20logo.png?raw=true" alt="Kick" class="inline-block h-8 w-8 align-middle mr-2">
@@ -188,7 +192,7 @@
 
       <a href="https://www.instagram.com/odedsvr/" target="_blank" class="card card-insta block rounded-2xl p-5 text-center">
         <div class="text-xl font-black text-pink-400">
-          <img src="https://github.Hcom/OdedSVR/images/blob/main/instlogo.png?raw=true" alt="Instagram" class="inline-block h-6 w-6 align-middle mr-2">
+          <img src="https://github.com/OdedSVR/images/blob/main/instlogo.png?raw=true" alt="Instagram" class="inline-block h-6 w-6 align-middle mr-2">
           עדכונים בסטורי
         </div>
       </a>
